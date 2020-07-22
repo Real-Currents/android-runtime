@@ -4,8 +4,13 @@ buildscript {
 
     def initialize = { ->
         def userDir = "${rootProject.projectDir}/../.."
-        apply from: "$rootDir/gradle-helpers/user_properties_reader.gradle"
-        apply from: "$rootDir/gradle-helpers/paths.gradle"
+        println  "Root project:   ${project.rootProject}"
+        println  "  rootDir:      ${project.rootDir}"
+        println  "  projectDir:   ${project.projectDir}"
+        println  "  project dir:  ${userDir}"
+
+        apply from: "$projectDir/gradle-helpers/user_properties_reader.gradle"
+        apply from: "$projectDir/gradle-helpers/paths.gradle"
         rootProject.ext.userDefinedGradleProperties = getUserProperties("${getAppResourcesPath(userDir)}/Android")
     }
     initialize()

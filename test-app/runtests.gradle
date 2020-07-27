@@ -5,11 +5,11 @@ def runOnDeviceOrEmulator = runOnDevice ? "-d" : "-e"
 def onlyX86 = project.hasProperty("onlyX86")
 def useCCache = project.hasProperty("useCCache")
 
-// task deleteDist(type: Delete) {
-//     doFirst {
-//         delete "$rootDir/dist"
-//     }
-// }
+task deleteDist(type: Delete) {
+    doFirst {
+        delete "$rootDir/dist"
+    }
+}
 
 task waitForEmulatorToStart(type: Exec) {
     doFirst {
